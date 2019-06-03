@@ -1,0 +1,16 @@
+<div class="card">
+  <div class="card-header"><img src="../../../assets/images/rightbar-header.png"></div>
+  <div class="card-body">
+    <h5 class="card-title">Home</h5>
+    <p>Your personal Follo frontpage. Create post and communities.</p>
+    <div *ngIf="user">
+      <button type="button" class="btn btn-primary create-post-button" [routerLink]="[ '/community/post/create']">CREATE
+        POST</button>
+      <button type="button" class="btn btn-outline-primary create-community-button"
+        [routerLink]="[ '/community/create']">CREATE COMMUNITY</button>
+    </div>
+    <div *ngIf="!user">
+      Please Login to Access More Features
+    </div>
+  </div>
+</div>

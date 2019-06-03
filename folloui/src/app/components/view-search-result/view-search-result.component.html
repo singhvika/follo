@@ -1,0 +1,50 @@
+<div class="row search">
+  <div class="col-sm-12">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Search results for: {{searchKey}}</h5>
+      </div>
+      <ul class="nav nav-tabs">
+        <li class="nav-item">
+          <a class="nav-link" [ngClass]="{'active': isCommunities}" (click)="submit('communities')">Communities</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [ngClass]="{'active': !isCommunities}" (click)="submit('posts')">Posts</a>
+        </li>
+      </ul>
+      <ul class="list-group list-group-flush" *ngIf="isCommunities">
+        <li class="list-group-item" *ngFor="let comm of communities" [routerLink]="[ '/community', comm.cname ]">
+          <div class="row">
+            <div class="col-sm-4">
+              <div class="image">
+                <img src="../../../assets/images/f1.png">
+              </div>
+              <b>{{comm.cname}}</b>
+            </div>
+            <div class="col-sm-8">
+              <p>{{comm.description}}</p>
+            </div>
+          </div>
+        </li>
+        <li class="list-group-item error">{{commNullMsg}}</li>
+      </ul>
+      <ul class="list-group list-group-flush" *ngIf="!isCommunities">
+        <li class="list-group-item" *ngFor="let post of posts"
+          [routerLink]="[ '/community/' + post.parent_community.cname + '/post/', post._id ]">
+          <div class="row">
+            <div class="col-sm-4">
+              <div class="image">
+                <img src="../../../assets/images/f1.png">
+              </div>
+              <b>{{post.title}}</b>
+            </div>
+            <div class="col-sm-8">
+              <p>{{post.content}}</p>
+            </div>
+          </div>
+        </li>
+        <li class="list-group-item error">{{postNullMsg}}</li>
+      </ul>
+    </div>
+  </div>
+</div>

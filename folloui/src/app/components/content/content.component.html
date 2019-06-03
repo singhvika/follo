@@ -1,0 +1,84 @@
+<ul class="nav nav-tabs justify-content-center">
+  <li class="nav-item">
+    <a type="link" class="nav-link" [ngClass]="{'active': viewToDisplay === 'discover'}" name="discover"
+      (click)="setView('discover')">Discover</a>
+  </li>
+  <li class="nav-item">
+    <a type="link" class="nav-link" [ngClass]="{'active': viewToDisplay === 'personal'}" name="personal"
+      (click)="setView('personal')">Personal</a>
+  </li>
+</ul>
+<div *ngIf="viewToDisplay=='discover'">
+  <div class="card post" *ngFor="let post of discoverPosts">
+    <div class="card-body">
+      <span class="posted-by">Posted by {{post.created_by.username}} on {{post.posted_on |  date:'MM/dd/yyyy'}}</span>
+      <h5 class="card-title">{{post.title}}</h5>
+
+      <div *ngFor="let image of post.post_media">
+        <hr>
+
+        <div class="post-image">
+          <img src="{{image.media}}" class="post-image" />
+        </div>
+        <hr>
+      </div>
+
+
+
+      <p>{{post.content}}</p>
+      <hr>
+      <button type="button" class="btn btn-link comment"
+        [routerLink]="[ '/community/'+ post.parent_community.cname +'/post/', post._id ]"><i
+          class="fas fa-comments"></i></button>
+      <button type="button" class="btn btn-link up"
+        (click)="voteUp(voteU, voteD, post._id, post.parent_community.cname)">
+        <span #voteU>{{post.upvotes}}</span>
+        <i class="fas fa-angle-double-up"></i></button>
+      <button type="button" class="btn btn-link down"
+        (click)="voteDown(voteU, voteD, post._id, post.parent_community.cname)">
+        <span #voteD>{{post.downvotes}}</span><i class="fas fa-angle-double-down"></i></button>
+    </div>
+    <br>
+  </div>
+  <a type="link" class="nav-link" name="get-more-discover" (click)="fetchDiscoverPosts()">Load More</a>
+</div>
+
+
+
+
+
+<div *ngIf="viewToDisplay=='personal'">
+  <div *ngIf="!authUser">
+    Please Login to access your personal feed
+  </div>
+  <div *ngIf="authUser">
+    <div class="card post" *ngFor="let post of personalPosts">
+      <div class="card-body">
+        <span class="posted-by">Posted by {{post.created_by.username}} on {{post.posted_on |  date:'MM/dd/yyyy'}}</span>
+        <h5 class="card-title">{{post.title}}</h5>
+        <div *ngFor="let image of post.post_media">
+            <hr>
+    
+            <div class="post-image">
+              <img src="{{image.media}}" class="post-image" />
+            </div>
+            <hr>
+          </div>
+        <p>{{post.content}}</p>
+        <hr>
+        <button type="button" class="btn btn-link comment"
+          [routerLink]="[ '/community/'+ post.parent_community.cname +'/post/', post._id ]"><i
+            class="fas fa-comments"></i></button>
+        <button type="button" class="btn btn-link up"
+          (click)="voteUp(voteU, voteD, post._id, post.parent_community.cname)">
+          <span #voteU>{{post.upvotes}}</span>
+          <i class="fas fa-angle-double-up"></i></button>
+        <button type="button" class="btn btn-link down"
+          (click)="voteDown(voteU, voteD, post._id, post.parent_community.cname)">
+          <span #voteD>{{post.downvotes}}</span><i class="fas fa-angle-double-down"></i></button>
+      </div>
+    </div>
+  </div>
+
+
+</div>

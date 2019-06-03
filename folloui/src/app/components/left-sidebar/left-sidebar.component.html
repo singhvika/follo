@@ -1,0 +1,71 @@
+<!-- <div class="row "> -->
+<div>
+  <div class="card community">
+    <h5 class="card-header ">
+      Communities
+    </h5>
+    <div id="accordion" *ngIf="user">
+      <div class="card mrg">
+        <div class="card-header" id="headingOne" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true"
+          aria-controls="collapseOne">
+          <h5 class="mb-0">
+            <button class="btn btn-link heading">
+              Created
+            </button>
+            <i class="fas fa-sort"></i>
+          </h5>
+        </div>
+
+        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+          <ul *ngIf="createdCommunities?.length > 0; else noCreatedComm" class="list-group scrollable">
+            <li class="list-group-item" *ngFor='let createdComm of createdCommunities'>
+              <button class="btn btn-link"
+                (click)="viewCommDetail(createdComm?.community?.name)">{{createdComm?.community?.name}}</button>
+            </li>
+          </ul>
+          <ng-template #noCreatedComm>
+            <ul class="list-group scrollable">
+              <li class="list-group-item">
+                Create your own communities.
+              </li>
+            </ul>
+          </ng-template>
+        </div>
+      </div>
+
+      <div class="card mrg">
+        <div class="card-header" id="headingTwo" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false"
+          aria-controls="collapseTwo">
+          <h5 class="mb-0">
+            <button class="btn btn-link collapsed heading">
+              Following
+            </button>
+            <i class="fas fa-sort"></i>
+          </h5>
+        </div>
+        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+          <ul *ngIf="followingCommunities?.length > 0; else noFolloComm" class="list-group scrollable">
+            <li class="list-group-item" *ngFor='let favComm of followingCommunities'>
+              <button class="btn btn-link"
+                (click)="viewCommDetail(favComm?.community?.name)">{{favComm?.community?.name}}</button>
+            </li>
+          </ul>
+          <ng-template #noFolloComm>
+            <ul class="list-group scrollable">
+              <li class="list-group-item">
+                Start Following communities.
+              </li>
+            </ul>
+          </ng-template>
+        </div>
+      </div>
+    </div>
+
+    <ul *ngIf="!user" class="list-group">
+      <li class="list-group-item">
+        Please Login to Curate your communities
+      </li>
+    </ul>
+  </div>
+</div>
+<!-- </div> -->

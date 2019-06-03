@@ -1,0 +1,78 @@
+.signin-modal-img {
+    width: 100%;
+}
+
+.login-bottom-text {
+    font-family: "Noto Sans", sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 18px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+
+.FolloIcon {
+    display: block;
+    width: 40px;
+    height: 40px;
+    background-image: url('/assets/images/f4.png');
+    margin-bottom: 8px;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.art {
+    background-image: url(https://www.redditstatic.com/accountmanager/bbb584033aa89e39bad69436c504c9bd.png);
+    height: 82vh;
+    min-height: 450px;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.modal-content {
+    align-items: center;
+    overflow: hidden;
+    height: 82vh;
+    flex-direction: unset;
+}
+
+.left {
+    width: 156px;
+}
+
+.right {
+    width: 100%;
+}
+
+.right-content {
+    min-width: 260px;
+    max-width: 440px;
+    padding: 24px;
+}
+
+.login-modal-close {
+    position: absolute;
+    right: 22px;
+    top: 16px;
+    background: transparent;
+    border: none;
+    color: black;
+    padding: initial;
+    z-index: 1;
+}
+
+
+
+.required:after {
+    color: #d00;
+    content: "*";
+    margin-left: 5px;
+    top: 7px;
+}
+
+.form-control.is-invalid {
+    background-position-x: 97%;
+    background-size: 2px 11px;
+    background-image: url(https://www.redditstatic.com/accountmanager/90a416eeb64d4d6ecd46c53d4ee11975.svg);
+}

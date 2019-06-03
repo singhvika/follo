@@ -1,0 +1,38 @@
+<div class="row post">
+  <div class="col-sm-12">
+    <div class="card">
+      <div class="card-body">
+        <b>{{cname}}</b> - <span class="posted-by">Posted by {{postCreatedBy}} on
+          {{postPostedOn |  date:'MM/dd/yyyy'}}</span>
+        <h4 class="card-title">{{postTitle}}</h4>
+        <div class="post-image">
+          <img *ngIf="imgSrc" src="{{imgSrc}}" class="post-image"/>
+        </div>
+        <p>{{postContent}}</p>
+        <button type="button" class="btn btn-link comment" disabled>{{comments?.length}}<i
+            class="fas fa-comments"></i></button>
+        <button type="button" class="btn btn-link up" (click)="upVote()">{{upVotes}}<i
+            class="fas fa-angle-double-up"></i></button>
+        <button type="button" class="btn btn-link down" (click)="downVote()">{{downVotes}}<i
+            class="fas fa-angle-double-down"></i></button>
+        <div class="form-group">
+          <label>Comment as {{authUser?.username}}</label>
+          <textarea #comment class="form-control" rows="4" name="description" placeholder="What are your thoughts?"
+            required></textarea>
+        </div>
+        <a type="button" class="btn btn-primary app-button" (click)="addComment(comment, comment.value)">Comment</a>
+        <span class="error" *ngIf="errMsg">{{errMsg}}</span>
+      </div>
+      <ul class="list-group">
+        <li class="list-group-item cmtBorder" *ngFor="let com of comments">
+          <div class="cornor">
+            <span class="posted-by"><b class="cmtUser">{{com.comment.username}}</b> -
+              {{com.comment.commentDate |  date:'MM/dd/yyyy'}}</span>
+            <i class="fas fa-trash-alt" (click)="deleteComment(com._id)"></i>
+            <p>{{com.comment.commentText}}</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

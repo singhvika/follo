@@ -1,0 +1,25 @@
+<!-- <div class="row"> -->
+<div class="col-sm-7 offset-sm-2 index">
+  <div *ngIf="isLoggedIn || isDiscover">
+    <div class="card community" *ngFor="let com of communities">
+      <h5 class="card-header ">{{com.communityName}}</h5>
+      <div class="card-body">
+        {{com.commDesc}}
+      </div>
+    </div>
+  </div>
+  <div class="no-community" *ngIf="!isLoggedIn && !isDiscover">
+    <div class="not-logged-in">
+      <p>Please log in to view or create your communities.</p>
+      <button type="button" class="btn btn-outline-primary app-button" data-toggle="modal"
+        data-target=".bd-example-modal-lg" [routerLink]="[ '/login' ]" data-backdrop="static" data-keyboard="false">LOG
+        IN</button>
+    </div>
+  </div>
+  <div class="no-community" *ngIf="communities?.length == 0 && isLoggedIn">
+    <div class="not-logged-in">
+      <p>There are not communities available. Please create a new communities.</p>
+    </div>
+  </div>
+</div>
+<!-- </div> -->

@@ -1,0 +1,17 @@
+ul {
+    margin-top: 11px;
+}
+
+a:not([href]) {
+    color: #007bff;
+    text-decoration: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+
+app-right-sidebar {
+    top: 110px;
+    position: absolute;
+    right: 105px;
+}

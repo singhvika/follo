@@ -1,0 +1,96 @@
+.view-comm {
+    margin-top: 20px;
+}
+
+.card-header {
+    height: 200px;
+    width: inherit;
+    padding: 0;
+
+    h4 {
+        margin: 0;
+        float: left;
+        margin-left: 10px;
+        color: white;
+        text-shadow: 4px 0 black, 0 2px black, 2px 0 black, 0 2px black;
+        font-family: URW Chancery L, cursive;
+        font-weight: 900;
+    }
+}
+
+img {
+    width: 100%;
+    height: 100%;
+    // opacity: 0.4;
+}
+
+.post {
+    margin-top: 10px;
+}
+
+.community {
+    padding: 0;
+}
+
+.posted-by {
+    font-size: 12px;
+    color: rgb(120, 124, 126);
+}
+
+i {
+    font-size: 25px;
+
+    &.fa-plus,
+    &.fa-minus {
+        margin-right: 5px;
+        font-size: 12px;
+    }
+
+    &.fa-angle-double-down,
+    &.fa-angle-double-up {
+        margin-left: 5px;
+    }
+
+}
+
+button[type="button"] {
+    text-decoration: none;
+    color: black;
+
+}
+
+.comment:hover {
+    background-color: #eceff1;
+}
+
+.up:hover {
+    color: #651fff
+}
+
+.down:hover {
+    color: #ff1744;
+}
+
+.comm-created-by {
+    text-align: right;
+    font-size: 12px;
+    color: rgb(120, 124, 126);
+}
+
+.join {
+    width: 130px;
+    font-weight: 700 !important;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+    color: white !important;
+    float: right;
+    margin-right: 10px;
+}
+
+.commDetail {
+    position: absolute;
+    top: 58%;
+    //background: rgba(255, 255, 255, 0.3);
+    width: 100%;
+    // right: 1%;
+}

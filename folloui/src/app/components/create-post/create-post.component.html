@@ -1,0 +1,66 @@
+<div class="row create-post">
+  <div class="col-sm-12">
+    <div class="card">
+      <h5 class="card-header"><img src="../../../assets/images/create-post-header.jpg"></h5>
+      <div class="card-body">
+        <h5 class="card-title">Create Post</h5>
+        <hr>
+        <form [formGroup]="createPostForm">
+          <div class="form-group">
+            <label>Select Community</label>
+            <div class="dropdown">
+              <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                {{selectCommunity}}
+              </button>
+              <div class="dropdown-menu">
+                <div class="dropdown-header">Created Communities</div>
+                <a class="dropdown-item" *ngFor="let createdComm of createdCommunities"
+                  (click)="onSelectComm($event)">{{createdComm.community.name}}</a>
+                <div class=" dropdown-header">Following Communities
+                </div>
+                <a class="dropdown-item" *ngFor="let follComm of followingCommunities"
+                  (click)="onSelectComm($event)">{{follComm.community.name}}</a>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Select post type</label>
+            <div class="dropdown">
+              <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                {{selectedPostType}}
+              </button>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" *ngFor="let type of postType" (click)="onSelectPost($event)">{{type}}</a>
+              </div>
+            </div>
+          </div>
+          <div class="form-group" *ngIf="selectedPostType === 'Image'">
+            <label>Post Images</label>
+            <div class="input-group mb-3">
+              <div class="custom-file">
+                <input (change)="processFile($event.target.files)" id="inputGroupFile" type="file"
+                  class="custom-file-input" name="commImage" multiple>
+                <label for="inputGroupFile" #labelImport class="custom-file-label">Choose file</label>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Post Title</label>
+            <input type="text" class="form-control" name="title" formControlName="title" aria-describedby="emailHelp"
+              placeholder="Enter post title">
+            <small id="emailHelp" class="form-text text-muted">This will be added to the community.</small>
+          </div>
+          <div class="form-group">
+            <label>Description</label>
+            <textarea class="form-control" rows="4" name="content" formControlName="content"
+              placeholder="Tell about this post in few word"></textarea>
+          </div>
+          <a type="submit" class="btn btn-primary app-button" (click)="addPost()">CREATE</a>
+          <span class="error" *ngIf="err">{{err}}</span>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

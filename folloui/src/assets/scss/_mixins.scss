@@ -1,0 +1,23 @@
+@mixin border-radius($radius) {
+    -moz-border-radius: $radius;
+    -webkit-border-radius: $radius;
+    -ms-border-radius: $radius;
+    border-radius: $radius;
+}
+//make font color classes dynamically from list defined in _variables.scss
+@each $color in $color-list {
+    .#{$color}{
+        color:#{$color} 
+    }
+}
+//make background color classes dynamically from list defined in _variables.scss
+@each $color in $color-list {
+    .bg-#{$color}{
+        background-color:#{$color} 
+    }
+}
+@for $i from 1 through 20{
+    .width-#{$i*5}{
+        width: 0+$i*5% !important;
+    }
+}

@@ -1,0 +1,104 @@
+/* You can add global styles to this file, and also import other style files */
+@import './assets/scss/variables';
+@import './assets/scss/mixins';
+
+
+button {
+    border: 0 !important;
+}
+
+button:focus {
+    outline: 0;
+}
+
+.custom-btn {
+    color: $white !important;
+    background-color: $accent-color !important;
+}
+
+.custom-btn:hover {
+    color: $white !important;
+    background-color: $btn-hover-color !important;
+}
+
+.modal-backdrop {
+    z-index: 1019 !important;
+}
+
+div,
+button,
+input,
+textarea,
+label {
+    border-radius: 0 !important;
+}
+
+.scrollable::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    border-radius: 6px;
+    background-color: #F5F5F5;
+}
+
+.scrollable::-webkit-scrollbar {
+    width: 8px;
+    background-color: #F5F5F5;
+}
+
+.scrollable::-webkit-scrollbar-thumb {
+    border-radius: 6px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+    background-color: #0062cc;
+}
+
+.app-button {
+    min-width: 130px;
+    font-weight: 700 !important;
+    font-size: 12px;
+    border-width: 1px !important;
+    border-style: solid !important;
+    border-color: #007bff !important;
+    letter-spacing: 0.5px;
+    margin-left: 15px;
+}
+
+.left-sidebar {
+    position: fixed;
+    left:0;
+}
+
+.right-sidebar {
+    position: fixed;
+    right:0;
+}
+
+.margin-top-5 {
+    margin-top: 5%;
+}
+
+.content {
+    margin-top: 5%;
+    margin-bottom:3%;
+    margin-left:2%;
+    margin-right:2%
+}
+
+.center-content {
+    margin: 0px auto;
+
+}
+
+
+.max-height { 
+    height: 100%;
+}
+
+
+.error {
+    color: red;
+}
+
+.post-image {
+    max-width: 70%;
+    max-height: 60%;
+    margin-bottom: 1%;
+}

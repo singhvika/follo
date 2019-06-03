@@ -1,0 +1,17 @@
+@import '../../../assets/scss/variables';
+@import '../../../assets/scss/onboarding';
+
+.right-content-signup {
+    min-width: 260px;
+    max-width: 540px;
+    padding: 24px;
+}
+
+.app-button {
+    margin-left: 0;
+}
+
+.sign-up,
+.art {
+    height: auto;
+}

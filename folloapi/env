@@ -1,0 +1,3 @@
+DB_HOST=mongodb+srv://shruti:shruti@webdesign-mhvzg.mongodb.net/follo?retryWrites=true
+SERVER_PORT=3000
+JWT_KEY=follo

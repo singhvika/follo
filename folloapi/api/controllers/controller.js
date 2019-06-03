@@ -1,0 +1,1 @@
+let authController = require('authenticationController/authenticationController.js');

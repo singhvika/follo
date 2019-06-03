@@ -1,0 +1,30 @@
+.search {
+    margin-top: 20px;
+}
+
+.image {
+    height: 25px;
+    width: 25px;
+    border-radius: 100% !important;
+    background-color: lightgrey;
+    float: left;
+    text-align: center;
+    margin-right: 10px;
+}
+
+img {
+    width: 70%;
+    height: 70%;
+}
+
+li {
+    cursor: pointer;
+}
+
+.nav-tabs {
+    margin-left: 10px;
+}
+
+a:not([href]) {
+    color: #007bff;
+}

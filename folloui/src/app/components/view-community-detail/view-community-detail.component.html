@@ -1,0 +1,60 @@
+<div class="row view-comm">
+  <div class="col-sm-12 community" *ngIf="community">
+    <div class="card ">
+
+      <div *ngIf="!err">
+        <div class="card-header "><img [src]="commPicture">
+          <div class="commDetail">
+            <h4>{{community.cname | titlecase}}</h4>
+            <button *ngIf="!isPresentInFollowing" type="button" class="btn btn-success join" (click)="follow()"><i
+                class="fas fa-plus"></i>
+              FOLLOW</button>
+            <button *ngIf="isPresentInFollowing" type="button" class="btn btn-danger join" (click)="unFollow()"><i
+                class="fas fa-minus"></i>UNFOLLOW</button>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="err">
+        <div class="card-header "><img [src]="commPicture">
+          <div class="commDetail">
+            <h4>Whoopsie Daisy</h4>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div *ngIf="!err">
+          <div class="comm-created-by"><span>Create by {{community.createdBy?.user?.username}} on
+              {{community.createdDate |  date:'MM/dd/yyyy'}}</span></div>
+          {{community.description}}
+        </div>
+        <div *ngIf="err">
+          The community you were looking for was not found
+        </div>
+      </div>
+      <span class="error" *ngIf="!err && errMsg">{{errMsg}}</span>
+    </div>
+    <div class="card post" *ngFor="let post of posts">
+      <div class="card-body">
+        <span class="posted-by">Posted by {{post.created_by.username}} on {{post.posted_on |  date:'MM/dd/yyyy'}}</span>
+        <h5 class="card-title">{{post.title}}</h5>
+        <div *ngFor="let image of post.post_media">
+            <hr>
+    
+            <div class="post-image">
+              <img src="{{image.media}}" class="post-image" />
+            </div>
+            <hr>
+          </div>
+        <p>{{post.content}}</p>
+        <hr>
+        <button type="button" class="btn btn-link comment"
+          [routerLink]="[ '/community/'+ communityName +'/post/', post._id ]"><i class="fas fa-comments"></i></button>
+        <button type="button" class="btn btn-link up" (click)="voteUp(voteU, voteD, post._id)">
+          <span #voteU>{{post.upvotes}}</span>
+          <i class="fas fa-angle-double-up"></i></button>
+        <button type="button" class="btn btn-link down" (click)="voteDown(voteU, voteD, post._id)">
+          <span #voteD>{{post.downvotes}}</span><i class="fas fa-angle-double-down"></i></button>
+      </div>
+    </div>
+  </div>
+</div>

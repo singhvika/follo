@@ -1,0 +1,25 @@
+.create-post-button,
+.create-community-button {
+    width: 100%;
+    font-weight: 700 !important;
+    font-size: 12px;
+    border-width: 1px !important;
+    border-style: solid !important;
+    letter-spacing: 0.5px;
+    margin-bottom: 10px;
+}
+
+.card {
+    margin-top: 20px;
+}
+
+.card-header {
+    height: 85px;
+    width: inherit;
+    padding: 0;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+}

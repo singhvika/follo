@@ -1,0 +1,132 @@
+@import '../../../assets/scss/variables';
+@import '../../../assets/scss/mixins';
+
+.left-sidebar {
+    height: 100%;
+    /* Full-height: remove this if you want "auto" height */
+    width: 200px;
+    /* Set the width of the sidebar */
+    position: fixed;
+    /* Fixed Sidebar (stay in place on scroll) */
+    z-index: 1;
+    /* Stay on top */
+    top: 118px;
+    /* Stay at the top */
+    left: 0;
+    background-color: $dark-color;
+    /* Black */
+    overflow-x: hidden;
+    /* Disable horizontal scroll */
+    padding-top: 20px;
+}
+
+.left-sidebar div {
+    margin: 0 auto;
+    @include border-radius(10px);
+    background-color: #363636;
+    width: 90%;
+    border: none;
+    background-color: $dark-accent-color-2;
+    color: $white;
+    outline: none;
+    -webkit-box-shadow: inset 0 1px 1px #000, 0 1px 0 0 #a5a5a5;
+    box-shadow: inset 0 1px 1px #000, 0 1px 0 0 #a5a5a5;
+    margin-bottom: 10px;
+}
+
+/* The navigation menu links */
+.left-sidebar a {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+}
+
+/* When you mouse over the navigation links, change their color */
+.left-sidebar a:hover {
+    color: #f1f1f1;
+}
+
+/* Style page content */
+.main {
+    margin-left: 200px;
+    /* Same as the width of the sidebar */
+    padding: 0px 10px;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+    .left-sidebar {
+        padding-top: 15px;
+    }
+
+    .left-sidebar a {
+        font-size: 18px;
+    }
+}
+
+.card {
+    margin-top: 20px;
+
+    button {
+        font-size: 15px;
+        text-decoration: none;
+        font-weight: 700;
+    }
+}
+
+.community {
+    max-height: 90%;
+
+    .mrg {
+        margin-top: 0;
+    }
+
+    ul {
+        overflow-y: scroll;
+        overflow-x: hidden;
+
+        .btn-link {
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            width: 100%;
+            text-align: left;
+
+            &:hover {
+                overflow: visible;
+                white-space: normal;
+                height: auto;
+                /* just added this line */
+            }
+        }
+    }
+
+    a {
+        font-size: 15px;
+    }
+}
+
+.fixed {
+    position: fixed;
+    top: 107px;
+    z-index: 2;
+}
+
+#headingOne,
+#headingTwo {
+    padding: 0;
+    cursor: pointer;
+}
+
+.heading {
+    font-size: 18px;
+    color: #000;
+}
+
+i {
+    float: right;
+    margin-top: 6px;
+    margin-right: 6px;
+}

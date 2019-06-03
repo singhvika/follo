@@ -1,0 +1,39 @@
+    <div class="modal-content">
+      <div class="left max-height">
+        <div class="art"></div>
+      </div>
+      <div class="right">
+        <div class="right-content">
+          <div class="FolloIcon"></div>
+          <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" novalidate>
+            <div class="form-group">
+              <h5>Sign in</h5>
+            </div>
+            <div class="form-group">
+              <label for="recipient-name" class="col-form-label required">Email</label>
+              <input type="email" class="form-control" [ngClass]="displayFieldCss('email')" name="email"
+                formControlName="email">
+              <app-field-error-display [displayError]="isFieldValid('email')"
+                [errorMsg]="customErrorMsg('email')">
+              </app-field-error-display>
+            </div>
+            <div class="form-group">
+              <label for="message-text" class="col-form-label required">Password</label>
+              <input type="password" class="form-control" [ngClass]="displayFieldCss('password')" name="password"
+                formControlName="password" />
+              <app-field-error-display [displayError]="isFieldValid('password')"
+                [errorMsg]="customErrorMsg('password')">
+              </app-field-error-display>
+            </div>
+            <button type="submit" class="btn btn-primary app-button">SIGN IN</button>
+            <span class="login-error">
+              {{loginError}}
+            </span>
+          </form>
+          <div class="login-bottom-text">
+            New to Follo? <a class="BottomLink" (click)="reset()" [routerLink]="[ '/signup' ]">Sign up</a>
+          </div>
+        </div>
+      </div>
+    </div>
+

@@ -1,0 +1,26 @@
+<nav class="navbar fixed-top navbar-dark bg-dark" fixed>
+  <a class="navbar-brand" href="#">
+    <img src="assets/images/f2.png" width="20" height="30" class="d-inline-block align-top" alt="">
+    &nbsp;follo
+  </a>
+  <div class="form-inline search-div input-group">
+    <span class="input-group-prepend">
+      <div class="input-group-text bg-color border-right-0" (click)="search(searchKey, searchKey.value)"><i
+          class="fa fa-search"></i>
+      </div>
+    </span>
+    <input #searchKey class="form-control py-2 border-left-0 border" (keyup.enter)="search(searchKey,searchKey.value)"
+      type="search" placeholder="Search" aria-label="Search">
+  </div>
+  <div *ngIf="!loggedInUser">
+    <button type="button" class="btn btn-outline-primary app-button" [routerLink]="[ '/login' ]">LOG
+      IN</button>
+    <button type="button" class="btn btn-primary app-button" [routerLink]="[ '/signup' ]">SIGN
+      UP</button>
+  </div>
+  <div *ngIf="loggedInUser">
+    <span class="welcome" title="Username Username">Welcome <b>{{loggedInUser.firstName}}</b></span>
+    <button type="button" class="btn btn-primary app-button" (click)="logout()" [routerLink]="[ '' ]">SIGN
+      OUT</button>
+  </div>
+</nav>

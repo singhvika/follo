@@ -1,0 +1,71 @@
+<!-- Button trigger modal -->
+<div class="modal-content">
+  <div class="left max-height">
+    <div class="art"></div>
+  </div>
+  <div class="right">
+    <div class="right-content-signup">
+      <div class="FolloIcon"></div>
+      <form [formGroup]="signupForm" (ngSubmit)="onSubmit()" novalidate>
+        <div class="form-group">
+          <h5>Join us</h5>
+          <p>Start follo-ing to create, join community, post your views.</p>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label class="required" for="txtFirstname">First Name</label>
+            <input type="text" class="form-control" id="txtFirstname" [ngClass]="displayFieldCss('firstName')"
+              formControlName="firstName" name="firstName" placeholder="First name">
+            <app-field-error-display [displayError]="isFieldValid('firstName')"
+              [errorMsg]="customErrorMsg('firstName')"></app-field-error-display>
+          </div>
+          <div class="form-group col-md-6">
+            <label class=" required" for="txtLastname">Last Name</label>
+            <input type="text" class="form-control" id="txtLastname" [ngClass]="displayFieldCss('lastName')"
+              formControlName="lastName" name="lastName" placeholder="Last name">
+            <app-field-error-display [displayError]="isFieldValid('lastName')" [errorMsg]="customErrorMsg('lastName')">
+            </app-field-error-display>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label class="required" for="txtUsername">Username</label>
+            <input type="text" class="form-control" id="txtUsername" [ngClass]="displayFieldCss('username')"
+              formControlName="username" name="username" placeholder="Username">
+            <app-field-error-display [displayError]="isFieldValid('username')" [errorMsg]="customErrorMsg('username')">
+            </app-field-error-display>
+          </div>
+          <div class="form-group col-md-6">
+            <label class="required" for="txtEmail">Email</label>
+            <input type="email" class="form-control" id="txtEmail" [ngClass]="displayFieldCss('email')"
+              formControlName="email" name="email" placeholder="Email">
+            <app-field-error-display [displayError]="isFieldValid('email')" [errorMsg]="customErrorMsg('email')">
+            </app-field-error-display>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label class="required" for="txtPassword">Password</label>
+            <input type="password" class="form-control" id="txtPassword" [ngClass]="displayFieldCss('password')"
+              formControlName="password" name="password" placeholder="Password">
+            <app-field-error-display [displayError]="isFieldValid('password')" [errorMsg]="customErrorMsg('password')">
+            </app-field-error-display>
+          </div>
+          <div class="form-group col-md-6">
+            <label class="required" for="txtCPassword"> Confirm Password</label>
+            <input type="password" class="form-control" id="txtCPassword" [ngClass]="displayFieldCss('cpassword')"
+              formControlName="cpassword" name="cpassword" placeholder="Confirm Password">
+            <app-field-error-display [displayError]="isFieldValid('cpassword')"
+              [errorMsg]="customErrorMsg('cpassword')"></app-field-error-display>
+          </div>
+        </div>
+        <br>
+        <button type="submit" class="btn btn-primary app-button">SIGN UP</button>
+        <span class="error" *ngIf="errorMsg">{{errorMsg}}</span>
+      </form>
+      <div class="login-bottom-text">
+        Already Follo-ing? <a class="BottomLink" (click)="reset()" [routerLink]="[ '/login' ]">Sign in</a>
+      </div>
+    </div>
+  </div>
+</div>
